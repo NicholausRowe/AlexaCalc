@@ -1,0 +1,174 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my calculator",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AddIntent",
+          "slots": [
+            {
+              "name": "firstNumber",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{firstNumber}"
+              ]
+            },
+            {
+              "name": "secondNumber",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{secondNumber}"
+              ]
+            }
+          ],
+          "samples": [
+            "Add two numbers",
+            "Perform addition",
+            "{firstNumber} plus {secondNumber}",
+            "Add {firstNumber} and {secondNumber}"
+          ]
+        },
+        {
+          "name": "SubtractIntent",
+          "slots": [
+            {
+              "name": "firstNumber",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{firstNumber}"
+              ]
+            },
+            {
+              "name": "secondNumber",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{secondNumber}"
+              ]
+            }
+          ],
+          "samples": [
+            "Subtract two numbers",
+            "Perform subtraction",
+            "{secondNumber} take away {firstNumber}",
+            "{secondNumber} minus {firstNumber}",
+            "Subtract {firstNumber} from {secondNumber}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AddIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "firstNumber",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.533583807764.855390423327"
+              }
+            },
+            {
+              "name": "secondNumber",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": ""
+              }
+            }
+          ]
+        },
+        {
+          "name": "SubtractIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "firstNumber",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.955765527957.461559197439"
+              }
+            },
+            {
+              "name": "secondNumber",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.955765527957.256429487073"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.533583807764.855390423327",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the first number?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.955765527957.256429487073",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the second number?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.955765527957.461559197439",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the first number?"
+          }
+        ]
+      }
+    ]
+  }
+}
