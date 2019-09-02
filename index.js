@@ -4,7 +4,7 @@
 const Alexa = require('ask-sdk-core');
 
 //skill name
-const appName = 'AlexaCalc';
+const appName = 'My Calculator';
 
 //code for the handlers
 const LaunchRequestHandler = {
@@ -50,7 +50,6 @@ const AddIntentHandler = {
       .withShouldEndSession(true)
       .getResponse();
 
-
     } else {
         //Ask for the required input
       return handlerInput.responseBuilder
@@ -85,6 +84,39 @@ const SubtractIntentHandler = {
         .withShouldEndSession(true)
         .getResponse();
 
+    } else {
+      //Ask for the required input
+      return handlerInput.responseBuilder
+        .addDelegateDirective(intent)
+        .getResponse();
+    }
+
+  }
+};
+
+const MultiplyIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'MultiplyIntent'
+  },
+  handle(handlerInput) {
+    let speechText = '';
+    let displayText = '';
+    let intent = handlerInput.requestEnvelope.request.intent;
+    let firstNumber = intent.slots.firstNumber.value;
+    let secondNumber = intent.slots.secondNumber.value;
+
+    if (firstNumber && secondNumber) {
+      //Perform operation
+      let result = parseInt(firstNumber) * parseInt(secondNumber);
+      speechText = `The result of ${firstNumber} multiplied by ${secondNumber} is ${result}`;
+      displayText = `${result}`;
+
+      return handlerInput.responseBuilder
+        .speak(speechText)
+        .withSimpleCard(appName, displayText)
+        .withShouldEndSession(true)
+        .getResponse();
 
     } else {
       //Ask for the required input
@@ -96,8 +128,40 @@ const SubtractIntentHandler = {
   }
 };
 
+const DivideIntentHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+      && handlerInput.requestEnvelope.request.intent.name === 'DivideIntent'
+  },
+  handle(handlerInput) {
+    let speechText = '';
+    let displayText = '';
+    let intent = handlerInput.requestEnvelope.request.intent;
+    let firstNumber = intent.slots.firstNumber.value;
+    let secondNumber = intent.slots.secondNumber.value;
 
+    if (firstNumber && secondNumber) {
+      //Perform operation
+      let result = parseInt(firstNumber) / parseInt(secondNumber);
+      result = result.toFixed(2);
+      speechText = `The result of ${firstNumber} divided by ${secondNumber} is ${result}`;
+      displayText = `${result}`;
 
+      return handlerInput.responseBuilder
+        .speak(speechText)
+        .withSimpleCard(appName, displayText)
+        .withShouldEndSession(true)
+        .getResponse();
+
+    } else {
+      //Ask for the required input
+      return handlerInput.responseBuilder
+        .addDelegateDirective(intent)
+        .getResponse();
+    }
+
+  }
+};
 
 //end Custom handlers
 
@@ -148,7 +212,9 @@ const SessionEndedRequestHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
      .addRequestHandlers(LaunchRequestHandler,
                         AddIntentHandler,
-                        SubtractIntentHandler
+                        SubtractIntentHandler,
+                        MultiplyIntentHandler,
+                        DivideIntentHandler,
                         HelpIntentHandler,
                         CancelAndStopIntentHandler,
                         SessionEndedRequestHandler).lambda();
