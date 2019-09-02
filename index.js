@@ -4,7 +4,7 @@
 const Alexa = require('ask-sdk-core');
 
 //skill name
-const appName = 'AlexaCalc';
+const appName = 'My Calculator';
 
 //code for the handlers
 const LaunchRequestHandler = {
@@ -50,7 +50,6 @@ const AddIntentHandler = {
       .withShouldEndSession(true)
       .getResponse();
 
-
     } else {
         //Ask for the required input
       return handlerInput.responseBuilder
@@ -84,7 +83,6 @@ const SubtractIntentHandler = {
         .withSimpleCard(appName, displayText)
         .withShouldEndSession(true)
         .getResponse();
-
 
     } else {
       //Ask for the required input
@@ -148,7 +146,7 @@ const SessionEndedRequestHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
      .addRequestHandlers(LaunchRequestHandler,
                         AddIntentHandler,
-                        SubtractIntentHandler
+                        SubtractIntentHandler,
                         HelpIntentHandler,
                         CancelAndStopIntentHandler,
                         SessionEndedRequestHandler).lambda();
