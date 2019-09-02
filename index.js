@@ -143,7 +143,7 @@ const DivideIntentHandler = {
     if (firstNumber && secondNumber) {
       //Perform operation
       let result = parseInt(firstNumber) / parseInt(secondNumber);
-      result = +result.toFixed(2);
+      result = result.toFixed(2);
       speechText = `The result of ${firstNumber} divided by ${secondNumber} is ${result}`;
       displayText = `${result}`;
 
