@@ -4,6 +4,10 @@
       "invocationName": "my calculator",
       "intents": [
         {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
           "name": "AMAZON.CancelIntent",
           "samples": []
         },
@@ -14,19 +18,6 @@
         {
           "name": "AMAZON.StopIntent",
           "samples": []
-        },
-        {
-          "name": "HelloWorldIntent",
-          "slots": [],
-          "samples": [
-            "hello",
-            "how are you",
-            "say hi world",
-            "say hi",
-            "hi",
-            "say hello world",
-            "say hello"
-          ]
         },
         {
           "name": "AMAZON.NavigateHomeIntent",
@@ -54,7 +45,7 @@
             "Add two numbers",
             "Perform addition",
             "{firstNumber} plus {secondNumber}",
-            "Add {firstNumber} and {secondNumber}"
+            "add {firstNumber} and {secondNumber}"
           ]
         },
         {
@@ -99,7 +90,7 @@
               "confirmationRequired": false,
               "elicitationRequired": true,
               "prompts": {
-                "elicitation": "Elicit.Slot.533583807764.855390423327"
+                "elicitation": "Elicit.Slot.506791727036.76199578306"
               }
             },
             {
@@ -108,7 +99,7 @@
               "confirmationRequired": false,
               "elicitationRequired": true,
               "prompts": {
-                "elicitation": ""
+                "elicitation": "Elicit.Slot.506791727036.387548280904"
               }
             }
           ]
@@ -124,7 +115,7 @@
               "confirmationRequired": false,
               "elicitationRequired": true,
               "prompts": {
-                "elicitation": "Elicit.Slot.955765527957.461559197439"
+                "elicitation": ""
               }
             },
             {
@@ -133,7 +124,7 @@
               "confirmationRequired": false,
               "elicitationRequired": true,
               "prompts": {
-                "elicitation": "Elicit.Slot.955765527957.256429487073"
+                "elicitation": "Elicit.Slot.92822453056.835337232494"
               }
             }
           ]
@@ -143,7 +134,7 @@
     },
     "prompts": [
       {
-        "id": "Elicit.Slot.533583807764.855390423327",
+        "id": "Elicit.Slot.506791727036.76199578306",
         "variations": [
           {
             "type": "PlainText",
@@ -152,7 +143,7 @@
         ]
       },
       {
-        "id": "Elicit.Slot.955765527957.256429487073",
+        "id": "Elicit.Slot.506791727036.387548280904",
         "variations": [
           {
             "type": "PlainText",
@@ -161,11 +152,11 @@
         ]
       },
       {
-        "id": "Elicit.Slot.955765527957.461559197439",
+        "id": "Elicit.Slot.92822453056.835337232494",
         "variations": [
           {
             "type": "PlainText",
-            "value": "What is the first number?"
+            "value": "What is the second number?"
           }
         ]
       }
